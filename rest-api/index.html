@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Rest-Api</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://0.0.0.0:4000/rest-api/">
+  <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/"></a>
+
+    <nav class="site-nav">
+      <div style="background-color:blue;height:200px">
+	  
+	  </div>
+
+      <div class="trigger">
+        
+          
+        
+          
+          <a class="page-link" href="/rest-api/">Rest-Api</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Rest-Api</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Test23</p>
+
+<p>Tweek provides REST api for getting key values, and writing context properties.</p>
+
+<h3 id="getting-single-key-value">Getting single key value</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>http://tweek.mysoluto.com/configurations/{keyPath}?{context}
+</code></pre>
+</div>
+<p>Parameters:</p>
+<ul>
+  <li>keyPath - the full path to the key. (path/to/key)</li>
+  <li>context - a set of identities and properties, identities are encoded as {identityType}={identityIdentifier} such as:
+<code class="highlighter-rouge">user=5</code>
+properties are encoded as {identityType.propType}={propValue} such as:
+<code class="highlighter-rouge">user.age=25</code>
+In most cases, there’s no need to specify both identities and properties since Tweek automatically retrieve properties based on identities. <br />
+Return value is a single string wrapped with quotes, representing the key value for the requested context.
+If there’s no matching value, a “null” string is returned</li>
+</ul>
+
+<h3 id="getting-multiple-key-value-list">Getting multiple key value (list)</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>http://tweek.mysoluto.com/configurations/{keyPath}/_?{context}[$flatten=true][$include=path/to/key1&amp;$include=path/to/inner_path/_&amp;...]
+</code></pre>
+</div>
+<p>The parameters are basically the same as a single get.<br />
+The only different is with the return value.<br />
+If there are matching keys (every key that start with keypath) we will get a json tree containing the relevant keys.<br />
+Adding the flatten operator will change the response to a single-level json object.<br />
+All the paths in the JSON tree or object are relative to the requested keypath.
+If one or more $include modifiers are specified, Tweek will return result containing only the included paths. (similar to projection/select in databases)</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading"></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

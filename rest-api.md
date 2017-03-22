@@ -8,7 +8,7 @@ Tweek provides REST api for getting key values, and writing context properties.
 
 ### Getting single key value
 ```
-http://tweek.mysoluto.com/configurations/{keyPath}?{context}
+http://my-tweek.host/api/v1/keys/{keyPath}?{context}
 ```
 Parameters:
 - keyPath - the full path to the key. (path/to/key)
@@ -22,7 +22,7 @@ If there's no matching value, a "null" string is returned
 
 ### Getting multiple key value (list)
 ```
-http://tweek.mysoluto.com/configurations/{keyPath}/_?{context}[$flatten=true][$include=path/to/key1&$include=path/to/inner_path/_&...]
+http://my-tweek.host/api/v1/keys/{keyPath}/_?{context}[$flatten=true][$include=path/to/key1&$include=path/to/inner_path/_&...]
 ```
 The parameters are basically the same as a single get.  
 The only different is with the return value.  
