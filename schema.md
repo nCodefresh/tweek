@@ -14,8 +14,8 @@ In order to do that, we can define new key:
 `@tweek/context/user/level/type`  
 with the default value: number  
 
-This means we've just added a new property for our schema 'user.level' which use the type "number".  
-Types that allowed are:
+This means we've just added a new property for our schema 'user.level' which use the type "number" (allow any json based number).    
+Types that allowed are as follows:
 - all primitve json types: string, number, bool
 - date type
 - external types defined under @tweek/custom/types/{typename}
