@@ -17,6 +17,8 @@ Types that allowed are:
 
 If we are using custom, there should be another key
 at `@tweek/context/user/level/custom_type`, with value specifying the custom type. 
+for example:
+https://github.com/Soluto/tweek/tree/master/services/git-service/BareRepository/source/rules/%40tweek/context/device/device_os_type
 
 ### Custom types
 A custom type is a json value with the following properties:
@@ -28,3 +30,7 @@ A custom type is a json value with the following properties:
     "validation": "some regex string", //optional - regex for validating input, currently not used by editor/api
 }
 ```
+
+
+When using external types, the json properties are defined as tweek keys.
+For example: https://github.com/Soluto/tweek/tree/master/services/git-service/BareRepository/source/rules/%40tweek/custom_types/version
