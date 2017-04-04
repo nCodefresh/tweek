@@ -1,3 +1,9 @@
+---
+layout: page
+title: Identities, properties and schema
+permalink: /schema/
+---
+
 ## Identities, properties and schema
 
 Tweek allow to define schema for identities and their properties using special tweek keys.  
