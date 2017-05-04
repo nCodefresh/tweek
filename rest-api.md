@@ -8,7 +8,7 @@ Tweek provides REST api for getting key values, and writing context properties.
 
 ### Getting single key value
 ```
-http://my-tweek.host/api/v1/keys/{keyPath}?{context}
+GET http://my-tweek.host/api/v1/keys/{keyPath}?{context}
 ```
 Parameters:
 - keyPath - the full path to the key. (path/to/key)
@@ -22,7 +22,7 @@ If there's no matching value, a "null" string is returned
 
 ### Getting multiple key value (list)
 ```
-http://my-tweek.host/api/v1/keys/{keyPath}/_?{context}[$flatten=true][$include=path/to/key1&$include=path/to/inner_path/_&...]
+GET http://my-tweek.host/api/v1/keys/{keyPath}/_?{context}[$flatten=true][$include=path/to/key1&$include=path/to/inner_path/_&...]
 ```
 The parameters are basically the same as a single get.  
 The only different is with the return value.  
@@ -30,3 +30,27 @@ If there are matching keys (every key that start with keypath) we will get a jso
 Adding the flatten operator will change the response to a single-level json object.  
 All the paths in the JSON tree or object are relative to the requested keypath.
 If one or more $include modifiers are specified, Tweek will return result containing only the included paths. (similar to projection/select in databases)
+
+### Adding data to context
+```
+POST http://my-tweek.host/api/v1/context/{identityType}/{identityValue}
+{
+    [{propName}]: {propValue}
+    [@fixed:{keyPath}] : {keyValue}
+}
+```
+Adding data to context can be used for adding new data on identity, for example:
+```
+POST http://my-tweek.host/api/v1/context/user/john_a@email.org
+{
+    "age": 24,
+    "country": "UK"
+}
+```
+Or override specfic key value for the identity:
+```
+POST http://my-tweek.host/api/v1/context/user/john_a@email.org
+{
+    @fixed:path/to/key : "somevalue"
+}
+```
