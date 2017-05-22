@@ -17,7 +17,7 @@ Parameters:
 properties are encoded as {identityType.propType}={propValue} such as:
 `user.age=25`
 In most cases, there's no need to specify both identities and properties since Tweek automatically retrieve properties based on identities.   
-Return value is a single string wrapped with quotes, representing the key value for the requested context.
+Return value is a json value representing the key value for the requested context.
 If there's no matching value, a "null" string is returned
 
 ### Getting multiple key value (list)
