@@ -106,7 +106,7 @@ namespace Engine.DataTypes
         {
             if (query == FullScan) return true;
             if (query == path) return true;
-            if (query.IsScan) return path._path.StartsWith(query.Prefix);
+            if (query.IsScan) return path._path.StartsWith($"{query.Prefix}/");
             return false;
         }
     }
