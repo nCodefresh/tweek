@@ -2,15 +2,15 @@
 FROM microsoft/aspnetcore-build:1.1.2 as csproj-files
 COPY . /src
 RUN find /src -type f -not -name "*.csproj" -delete
-RUN ls -a /src
-RUN ls -a /src/addons/AppMetrics/Tweek.Addons.AppMetrics.GraphiteReporter/
+RUN ls -a /src/
+#RUN ls -a /src/addons/AppMetrics/Tweek.Addons.AppMetrics.GraphiteReporter/
 
 # ---- WARM UP NUGET ----
 FROM microsoft/aspnetcore-build:1.1.2 as nuget-cache
 COPY --from=csproj-files /src /src
 COPY ./Tweek.sln /src
-RUN ls -a /src
-RUN ls -a /src/addons/AppMetrics/Tweek.Addons.AppMetrics.GraphiteReporter/
+RUN ls -a /src/
+#RUN ls -a /src/addons/AppMetrics/Tweek.Addons.AppMetrics.GraphiteReporter/
 RUN dotnet restore ./src/Tweek.sln
 
 # ---- BUILD & TEST ----
