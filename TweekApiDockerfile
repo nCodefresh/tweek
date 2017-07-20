@@ -1,7 +1,7 @@
 # ---- *.csproj FILES ----
 FROM microsoft/aspnetcore-build:1.1.2 as csproj-files
 COPY . /src
-RUN find /src -type f -not -name "*.csproj" -delete
+#RUN find /src -type f -not -name "*.csproj" -delete
 
 # ---- WARM UP NUGET ----
 FROM microsoft/aspnetcore-build:1.1.2 as nuget-cache
